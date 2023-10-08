@@ -8,7 +8,7 @@ namespace MonsterTradingCardsGame_2
 {
     internal class AllUsers
     {
-        public List<User> userList = null;
+        public List<User> userList;
 
         public void CreateList(User user)
         {
@@ -21,6 +21,20 @@ namespace MonsterTradingCardsGame_2
             userList.Add(user);
         }
 
+        public void ChangeUsername(string username, string newUsername)
+        {
+            int userPosition = 0;
+            while(userPosition < userList.Count)
+            {
+                if(userList[userPosition].Username == username)
+                {
+                    userList[userPosition].Username = newUsername;
+                    break;
+                }
+                userPosition++;
+            }
+        }
+
         public bool IsNewUsername(string username)
         {
             for(int i = 0; i < userList.Count; i++)
@@ -31,6 +45,20 @@ namespace MonsterTradingCardsGame_2
                 }
             }
             return true;
+        }
+
+        public bool IsCorrectPassword(string username, string password)
+        {
+            int userPosition = 0;
+            while (userPosition < userList.Count)
+            {
+                if (userList[userPosition].Username == username && userList[userPosition].Password == password)
+                {
+                    return true;
+                }
+                userPosition++;
+            }
+            return false;
         }
     }
 }

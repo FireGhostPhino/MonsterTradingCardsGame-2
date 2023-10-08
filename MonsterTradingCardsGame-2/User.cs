@@ -11,7 +11,10 @@ namespace MonsterTradingCardsGame_2
     {
         private string _username;
         private string _password;
-        private string _coins;
+        private int _coins;
+        private int _elo;
+        public List<Card> cardStack;
+        public List<Card> cardDeck;
 
         public string Username
         {
@@ -25,10 +28,15 @@ namespace MonsterTradingCardsGame_2
             set { _password = value; }
         }
 
-        public string Coins
+        public int Coins
         {
-            get { return Coins; }
-            set { Coins = value; }
+            get { return _coins; }
+            set { _coins = value; }
+        }
+
+        public int Elo
+        {
+            get { return _elo; }
         }
 
         public bool AddUser(string username, string password, AllUsers userList)
@@ -37,6 +45,23 @@ namespace MonsterTradingCardsGame_2
             {
                 Username = username;
                 Password = password;
+                userList.AddUser(this);
+                Coins = StandardValues.startCoins;
+                Elo = StandardValues.startElo;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool ChangeUsername(string username, string password, string newUsername, AllUsers userList)
+        {
+            if (userList.IsNewUsername(newUsername) && userList.IsCorrectPassword(username, password))
+            {
+                Username = newUsername;
+                userList.ChangeUsername(username, newUsername);
                 return true;
             }
             else

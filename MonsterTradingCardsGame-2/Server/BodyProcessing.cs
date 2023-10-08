@@ -12,7 +12,7 @@ namespace MonsterTradingCardsGame_2.Server
         public int BodyProcesser(int content_length, StreamReader reader)
         {
             string command = BodyReader(content_length, reader);
-            if(command != null)
+            if(command != 0.ToString())
             {
                 return CommandListener(command);
             }
@@ -21,7 +21,6 @@ namespace MonsterTradingCardsGame_2.Server
 
         public string BodyReader(int content_length, StreamReader reader)
         {
-            string command = null;
             //read the body if existing
             if (content_length > 0)
             {
@@ -39,9 +38,9 @@ namespace MonsterTradingCardsGame_2.Server
                     data.Append(chars, 0, bytesRead);
                 }
                 Console.WriteLine(data.ToString());
-                command = data.ToString();
+                return data.ToString();
             }
-            return command;
+            return 0.ToString();
         }
 
         public int CommandListener(string command)

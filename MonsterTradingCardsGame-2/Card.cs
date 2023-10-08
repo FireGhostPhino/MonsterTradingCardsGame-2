@@ -10,6 +10,7 @@ namespace MonsterTradingCardsGame_2
     {
         private string _cardtype;
         private string _elementType;
+        private int _damage;
 
         public string CardType
         {
@@ -22,6 +23,14 @@ namespace MonsterTradingCardsGame_2
             get { return _elementType; }
             set { _elementType = value; }
         }
+
+        public int Damage
+        {
+            get { return _damage; }
+            set { _damage = value; }
+        }
+
+
 
 
         public void TestParentClass()

@@ -6,6 +6,28 @@ using System.Threading.Tasks;
 
 namespace MonsterTradingCardsGame_2.Enums
 {
+    public enum CardTypes
+    {
+        Fire_Spell,
+        Water_Spell,
+        Regular_Spell,
+        Fire_Goblin,
+        Water_Goblin,
+        Regular_Goblin,
+        Fire_Troll,
+        Water_Troll,
+        Regular_Troll,
+        Fire_Ork,
+        Water_Ork,
+        Regular_Ork,
+        Fire_Elve,
+        Water_Elve,
+        Regular_Elve,
+        Dragon,
+        Knight,
+        Krake
+    }
+
     internal class EnumCardTypes
     {
          /*
@@ -14,7 +36,7 @@ namespace MonsterTradingCardsGame_2.Enums
             Regular_
          */
 
-        enum CardTypes
+        /*public enum CardTypes
         {
             Fire_Spell,
             Water_Spell,
@@ -34,6 +56,6 @@ namespace MonsterTradingCardsGame_2.Enums
             Dragon,
             Knight,
             Krake
-        }
+        }*/
     }
 }
