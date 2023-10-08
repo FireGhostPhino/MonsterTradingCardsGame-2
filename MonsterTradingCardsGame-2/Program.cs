@@ -4,8 +4,24 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Programm MonsterTradingCardsGame Start 1!\n");
+            
+            Enums.CardTypes test = Enums.CardTypes.Fire_Elve;
+            Console.WriteLine(test);
+            Console.WriteLine((int)Enums.CardTypes.Fire_Elve);
+            if((int)Enums.CardTypes.Fire_Elve == 12)
+            {
+                Console.WriteLine("richtig!");
+            }
 
+            /*Server.Control server = new Server.Control();
+
+
+
+            server.ServerControl();
+            Console.WriteLine("fertig");*/
+
+            /*Console.WriteLine("Branch: Development");
+            Console.WriteLine("Programm MonsterTradingCardsGame Start!\n");
             Card cardMonster = new MonsterCard();
             Card cardSpell = new SpellCard();
 
@@ -16,7 +32,7 @@
 
             cardMonster.TestParentClass();
 
-            Console.WriteLine("\nProgramm End!");
+            Console.WriteLine("\nProgramm End!");*/
         }
     }
 }
