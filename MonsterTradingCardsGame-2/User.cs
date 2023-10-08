@@ -37,6 +37,7 @@ namespace MonsterTradingCardsGame_2
         public int Elo
         {
             get { return _elo; }
+            set { _elo = value; }
         }
 
         public bool AddUser(string username, string password, AllUsers userList)
