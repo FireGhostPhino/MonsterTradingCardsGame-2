@@ -12,7 +12,7 @@ namespace MonsterTradingCardsGame_2.Server
     {
         public void ServerControl()
         {
-            Console.WriteLine("Our first simple HTTP-Server! http://localhost:10001/");
+            Console.WriteLine("Server erreichbar unter: http://localhost:10001/");
 
             var httpServer = new TcpListener(IPAddress.Loopback, 10001);
             httpServer.Start();
@@ -47,27 +47,16 @@ namespace MonsterTradingCardsGame_2.Server
                     }
                 }
 
-                //read the body if existing
-                if (content_length > 0)
-                {
-                    var data = new StringBuilder(200);
-                    char[] chars = new char[1024];
-                    int bytesReadTotal = 0;
-                    while (bytesReadTotal < content_length)
-                    {
-                        var bytesRead = reader.Read(chars, 0, chars.Length);
-                        bytesReadTotal += bytesRead;
-                        if (bytesRead == 0)
-                        {
-                            break;
-                        }
-                        data.Append(chars, 0, bytesRead);
-                    }
-                    Console.WriteLine(data.ToString());
-                }
+                BodyProcessing body = new BodyProcessing();
+                int command = body.BodyProcesser(content_length, reader);
 
                 HTTP_Response response = new HTTP_Response();
                 response.HTTPResponse(writer);
+
+                if(command == -1)
+                {
+                    break;
+                }
             }
         }
     }
