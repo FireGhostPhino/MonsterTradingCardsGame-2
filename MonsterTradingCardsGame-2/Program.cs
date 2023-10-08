@@ -4,7 +4,13 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Programm MonsterTradingCardsGame Start 1!\n");
+            Server.Control server = new Server.Control();
+
+            server.ServerControl();
+            Console.WriteLine("fertig");
+
+            /*Console.WriteLine("Branch: Development");
+            Console.WriteLine("Programm MonsterTradingCardsGame Start!\n");
 
             Card cardMonster = new MonsterCard();
             Card cardSpell = new SpellCard();
@@ -16,7 +22,7 @@
 
             cardMonster.TestParentClass();
 
-            Console.WriteLine("\nProgramm End!");
+            Console.WriteLine("\nProgramm End!");*/
         }
     }
 }

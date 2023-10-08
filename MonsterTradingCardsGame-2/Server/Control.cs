@@ -66,13 +66,8 @@ namespace MonsterTradingCardsGame_2.Server
                     Console.WriteLine(data.ToString());
                 }
 
-                //write the HTTP response
-                writer.WriteLine("HTTP/1.1 200 OK");
-                writer.WriteLine("Content-Type: text/html; charset=utf-8");
-                writer.WriteLine();
-                writer.WriteLine("<html><body><h1>Hello World!</h1></body></html>");
-                /*writer.Flush();
-                writer.Close();*/
+                HTTP_Response response = new HTTP_Response();
+                response.HTTPResponse(writer);
             }
         }
     }
